@@ -36,18 +36,16 @@ public class Creature {
             fullness -= 5;
 
             if (energy > 15) {energy = 15;}
-            System.out.println("Great Nap!");
+            System.out.println( this.getName() + "has had a great Nap!");
         }
     }
 
     public void play() {
-        if (happiness >= 7) {
+        if (happiness <= 7) {
             happiness += 8;
-        }
-        else {
+        } else {
             happiness = 15;
         }
-        happiness += 8;
         energy -= 6;
         fullness -= 4;
         System.out.println("Fun!");
@@ -55,6 +53,12 @@ public class Creature {
 
     public string checkstatus() {
         String status = "";
+
+        if (happiness <= 0 || energy <= 0 || fullness <= 0) {
+            System.out.println(this.getName() + "has died! You are a failure");
+            Systen.exit( status:0 );
+
+        }
 
         if (happiness <= 6) {
             status += "Oh, " + this.getName() + " is feeling sad! \n";
@@ -65,8 +69,8 @@ public class Creature {
         if (fullness <= 6) {
             status += "Oops, " + this.getName() + " is feeling hungry!\n";
         }
-    }
 
+    }
     public String getName() {
         return name;
     }
