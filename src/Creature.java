@@ -51,12 +51,12 @@ public class Creature {
         System.out.println("Fun!");
     }
 
-    public string checkstatus() {
+    public String checkStatus() {
         String status = "";
 
         if (happiness <= 0 || energy <= 0 || fullness <= 0) {
             System.out.println(this.getName() + "has died! You are a failure");
-            Systen.exit( status:0 );
+            System.exit(0);
 
         }
 
@@ -70,10 +70,11 @@ public class Creature {
             status += "Oops, " + this.getName() + " is feeling hungry!\n";
         }
 
+        return status;
     }
+
     public String getName() {
         return name;
     }
-
 
 }
